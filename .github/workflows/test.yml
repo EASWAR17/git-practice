@@ -1,0 +1,26 @@
+name: CI Pipeline with Self-Hosted Runner
+
+on: push
+
+jobs:
+  job1:
+    name: Job 1
+    runs-on: self-hosted
+    steps:
+      - name: Step 1
+        run: echo "Running Job 1"
+
+  job2:
+    name: Job 2
+    runs-on: self-hosted
+    steps:
+      - name: Step 1
+        run: echo "Running Job 2"
+
+  job3:
+    name: Job 3
+    runs-on: self-hosted
+    needs: [job1, job2]
+    steps:
+      - name: Step 1
+        run: echo "Running Job 3 after Job 1 and Job 2"
