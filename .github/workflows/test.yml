@@ -16,6 +16,8 @@ jobs:
     steps:
       - name: Step 1
         run: echo "Running Job 2"
+      - name: Intentional Failure
+        run: exit 1
 
   job3:
     name: Job 3
@@ -23,4 +25,4 @@ jobs:
     needs: [job1, job2]
     steps:
       - name: Step 1
-        run: echo "Running Job 3 after Job 1 and Job 2"
+        run: echo "Running Job 3 after both Job 1 and Job 2"
